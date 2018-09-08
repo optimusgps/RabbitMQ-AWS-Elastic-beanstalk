@@ -8,17 +8,19 @@ RUN curl https://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringS
     rm CloudWatchMonitoringScripts-1.2.2.zip && \
     cd aws-scripts-mon
 
-RUN printf "AWSAccessKeyId=${AWS_ACCESS_KEY_ID}\nAWSSecretKey=${AWS_SECRET_KEY}" >> /aws-scripts-mon/awscreds.conf
+RUN printf "AWSAccessKeyId=AKIAJI5UBDNFMPJ4NQFQ\nAWSSecretKey=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" >> /aws-scripts-mon/awscreds.conf
+
+#RUN cat /aws-scripts-mon/awscreds.conf
+
+#RUN ./aws-scripts-mon/mon-put-instance-data.pl --aws-credential-file=~/aws-scripts-mon/awscreds.conf --mem-util --verify --verbose
 
 #RUN ls ./aws-scripts-mon
 
 #RUN cat ./aws-scripts-mon/awscreds.conf
 
-RUN echo "1 * * * * ~/aws-scripts-mon/mon-put-instance-data.pl --mem-used-incl-cache-buff --mem-util --mem-used --mem-avail --disk-space-util --memory-units=megabytes --disk-path=/ --from-cron" >> /etc/crontab
+RUN echo "1 * * * * ~/aws-scripts-mon/mon-put-instance-data.pl --aws-credential-file=~/aws-scripts-mon/awscreds.conf --mem-used-incl-cache-buff --mem-util --mem-used --mem-avail --disk-space-util --memory-units=megabytes --disk-path=/ --from-cron" >> /etc/crontab
 
 #RUN cat /etc/crontab
-
-#RUN ./aws-scripts-mon/mon-put-instance-data.pl --mem-util --verify --verbose
 
 ENV RABBITMQ_USE_LONGNAME=true
 ENV RABBITMQ_ERLANG_COOKIE='Mimikyu'
