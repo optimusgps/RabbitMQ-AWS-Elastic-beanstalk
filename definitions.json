@@ -16,6 +16,11 @@
       "tags": "administrator"
     },
     {
+      "name": "NewTCPs",
+      "password": "NewTCPs123",
+      "tags": "administrator"
+    },
+    {
       "name": "Bumblebee",
       "password": "Bumblebee",
       "tags": "administrator"
@@ -38,6 +43,13 @@
         },
       {
             "user": "Bumblebee",
+            "vhost": "/",
+            "configure": ".*",
+            "write": ".*",
+            "read": ".*"
+        },
+      {
+            "user": "NewTCPs",
             "vhost": "/",
             "configure": ".*",
             "write": ".*",
