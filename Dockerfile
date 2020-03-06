@@ -1,4 +1,4 @@
-FROM rabbitmq
+FROM rabbitmq:3.7.7-management
 RUN apt-get update && apt-get install -y curl && \
     apt-get clean 
 
